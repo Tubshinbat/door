@@ -1,0 +1,51 @@
+.AboutImg {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  max-height: auto;
+}
+
+.AboutImg::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  margin-right: 15px;
+  height: 120%;
+  width: 90%;
+  content: "";
+  z-index: -1;
+  background-color: #fbfbfb;
+}
+
+.About {
+  display: flex;
+  flex-direction: column;
+}
+
+.About span {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: rgb(172, 172, 172);
+}
+
+.About h3 {
+  color: #0d4d95;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.About p {
+  font-size: 0.85rem;
+  line-height: 30px;
+}
+
+.Top {
+  padding: 10px 0px;
+  margin: 30px 0px;
+  padding-left: 20px;
+  border-left: 3px solid #0d4d95;
+}

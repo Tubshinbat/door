@@ -2,10 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "styles/Home.module.css";
 import Header from "components/Header";
+import Banner from "components/Banner";
+import Welcome from "components/HomeSections/Welcome";
+import Products from "components/HomeSections/Products";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Хаалга</title>
         <meta name="description" content="Door" />
@@ -13,7 +16,10 @@ export default function Home() {
       </Head>
       <main>
         <Header />
+        <Banner />
+        <Welcome />
+        <Products />
       </main>
-    </div>
+    </>
   );
 }
