@@ -103,3 +103,56 @@
   height: 12px;
   font-size: 12px;
 }
+
+@media (max-width: 1199px) {
+  .OrderBtn {
+    padding: 9px 15px !important;
+  }
+  .Menu li > a {
+    padding: 10px 6px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .Menu {
+    flex-direction: column;
+  }
+  .Menu li > a {
+    padding: 15px 6px;
+    font-size: 0.7rem;
+  }
+
+  .Menu li {
+    display: flex;
+  }
+  .OrderBtn {
+    display: flex;
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width: 474px) {
+  .Topbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Contacts {
+    margin-bottom: 15px;
+  }
+  .Contact {
+    margin-right: 10px;
+  }
+
+  .Socials a {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 4px;
+
+    font-size: 10px;
+    margin-left: 15px;
+    transition: all 0.3s;
+  }
+}

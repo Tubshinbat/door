@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import css from "styles/Header.module.css";
-
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -14,7 +14,7 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <header>
-      <div className="container">
+      <Container>
         <div className={css.Topbar}>
           <div className={css.Contacts}>
             <div className={css.Contact}>
@@ -38,39 +38,47 @@ const Header = () => {
             </a>
           </div>
         </div>
-        <div className={css.Header}>
-          <div className={css.Logo}>
-            <Image
-              src="/assets/img/logo.png"
-              className={css.LogoImg}
-              layout="fill"
-            />
-          </div>
 
-          <ul className={css.Menu}>
-            <li>
-              <a href="/">Нүүр хуудас </a>
-            </li>
-            <li>
-              <Link href="/products"> Бүтээгдэхүүн </Link>
-            </li>
-            <li>
-              <Link href="/news"> Мэдээ мэдээлэл</Link>
-            </li>
-            <li>
-              <Link href="/about"> Бидний тухай</Link>
-            </li>
-            <li>
-              <Link href="/contact"> Холбоо барих </Link>
-            </li>
-            <li>
-              <Link href="/order">
-                <a className={css.OrderBtn}> Захиалга өгөх </a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <Navbar expand="lg">
+          <Navbar.Brand href="/">
+            {" "}
+            <div className={css.Logo}>
+              <Image
+                src="/assets/img/logo.png"
+                className={css.LogoImg}
+                layout="fill"
+              />
+            </div>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+              <ul className={css.Menu}>
+                <li className="nav-item">
+                  <a href="/">Нүүр хуудас </a>
+                </li>
+                <li className="nav-item">
+                  <Link href="/products"> Бүтээгдэхүүн </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/news"> Мэдээ мэдээлэл</Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/about"> Бидний тухай</Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/contact"> Холбоо барих </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/order">
+                    <a className={css.OrderBtn}> Захиалга өгөх </a>
+                  </Link>
+                </li>
+              </ul>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </Container>
     </header>
   );
 };

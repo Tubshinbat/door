@@ -17,3 +17,54 @@
     rgba(53, 70, 111, 0.3) 100%
   );
 }
+
+@media (max-width: 1399px) {
+  .ImgBox {
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1199px) {
+  .ImgBox {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+  }
+  .BannerImg {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: fit-content !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .ImgBox {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+  }
+  .BannerImg {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: fit-content !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .ImgBox {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .BannerImg {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: fit-content !important;
+    height: 100% !important;
+  }
+}
