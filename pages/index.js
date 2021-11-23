@@ -8,6 +8,7 @@ import Products from "components/HomeSections/Products";
 import News from "components/HomeSections/News";
 import Footer from "components/Footer";
 import Partners from "components/HomeSections/Partners";
+import FooterBar from "components/FooterBar";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <News />
         <Partners />
         <Footer />
+        <FooterBar />
       </main>
     </>
   );

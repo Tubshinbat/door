@@ -1,6 +1,6 @@
 .Footer {
   background-color: #333;
-  padding-top: 80px;
+  padding: 50px 0px;
   width: 100%;
 }
 
@@ -15,28 +15,123 @@
   width: 130px;
 }
 
-.FooterPhone {
+.FooterContact {
   display: flex;
-  margin-top: 20px;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FooterPhone,
+.FooterMail {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #282828;
   border-radius: 100px;
-  padding: 12px 18px;
+  padding: 12px 45px;
   color: #fff;
   text-align: left;
   font-size: 14px;
+  transition: all 0.3s;
+  margin-bottom: 20px;
 }
-.FooterPhone a {
-  margin-left: 20px;
+.FooterPhone a,
+.FooterMail a {
+  margin-left: 10px;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+}
+.FooterPhone:hover,
+.FooterMail:hover {
+  background-color: #1a1919;
 }
 
-.FooterPhone a:hover {
-  color: #ccc;
+.FooterPhone a:hover,
+.FooterMail a:hover {
+  color: #fff;
 }
 
 .FooterPhone svg,
-.FooterPhone i {
+.FooterPhone i,
+.FooterMail svg,
+.FooterMail i {
   font-size: 14px;
   height: 14px;
+}
+
+.FooterAbout {
+  color: #a1a1a1;
+}
+
+.FooterAbout img {
+  margin-bottom: 25px;
+}
+.FooterAbout p {
+  font-size: 0.84rem;
+  line-height: 1.4rem;
+}
+
+.FooterMenu {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.FooterMenu li {
+  padding: 10px 0px;
+  border-bottom: 1px solid #4a4242;
+}
+
+.FooterMenu li:first-child {
+  padding-top: 0px;
+}
+
+.FooterMenu li:last-child {
+  border-bottom: 1px solid transparent;
+}
+
+.FooterMenu li a {
+  color: #a1a1a1;
+  font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.FooterMenu li a:hover {
+  padding-left: 10px;
+  color: rgb(209, 209, 209);
+}
+
+.Icons {
+  height: 14px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.SocialIcons {
+  display: flex;
+  margin-top: 0px;
+}
+
+.SocialIcons a {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.3s;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.SocialIcons a:hover {
+  background-color: #282828;
+}
+
+@media (max-width: 991px) {
+  .FooterMenu {
+    margin-left: 0px;
+    padding: 0px;
+  }
 }

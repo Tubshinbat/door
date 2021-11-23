@@ -7,7 +7,7 @@ const Products = () => {
     <section className="productsSection">
       <div className="container">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <div className={css.ProductInfo}>
               <h4> Танд санал болгох бүтээгдэхүүнд</h4>
               <p>
@@ -16,7 +16,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>
@@ -26,7 +26,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             {" "}
             <Link href="/products/product1">
               <div className={css.Product}>
@@ -37,7 +37,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>
@@ -47,7 +47,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>
@@ -57,7 +57,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>
@@ -67,7 +67,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>
@@ -77,7 +77,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-3">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
                 <div className={css.ProductImg}>

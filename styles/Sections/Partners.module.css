@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .Logos img {
   width: 230px;
@@ -16,4 +16,49 @@
 
 .Logos img:hover {
   filter: grayscale(0%);
+}
+
+@media (max-width: 1399px) {
+  .Logos img {
+    width: 200px;
+    height: auto;
+    padding: 30px;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: all 0.2s;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1199px) {
+  .Logos img {
+    width: 180px;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .Logos img {
+    width: 135px;
+    height: auto;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Logos img {
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Logos img {
+    width: 135px;
+    height: auto;
+    padding: 15px;
+  }
 }

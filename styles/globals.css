@@ -71,10 +71,13 @@ section {
   color: #0d4d95;
   font-weight: bold;
   margin-bottom: 0px;
+  text-align: center;
+  line-height: 1.8rem;
 }
 
 .sectionHader p {
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .navbar-collapse {
