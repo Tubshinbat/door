@@ -1,0 +1,19 @@
+.Logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.Logos img {
+  width: 230px;
+  height: auto;
+  padding: 30px;
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition: all 0.2s;
+}
+
+.Logos img:hover {
+  filter: grayscale(0%);
+}

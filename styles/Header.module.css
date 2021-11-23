@@ -8,7 +8,7 @@
 
 .Logo {
   position: relative;
-  width: 180px;
+  width: 160px;
   height: 65px;
 }
 
@@ -27,6 +27,13 @@
   text-decoration: none;
   font-size: 0.74rem;
   font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.Menu li > a:hover {
+  color: #0d4d95;
+  border-bottom: 2px solid #0d4d95;
 }
 
 .OrderBtn {

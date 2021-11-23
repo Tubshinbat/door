@@ -1,0 +1,42 @@
+.Footer {
+  background-color: #333;
+  padding-top: 80px;
+  width: 100%;
+}
+
+.FooterInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.FooterInfo img {
+  width: 130px;
+}
+
+.FooterPhone {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282828;
+  border-radius: 100px;
+  padding: 12px 18px;
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+}
+.FooterPhone a {
+  margin-left: 20px;
+}
+
+.FooterPhone a:hover {
+  color: #ccc;
+}
+
+.FooterPhone svg,
+.FooterPhone i {
+  font-size: 14px;
+  height: 14px;
+}

@@ -6,6 +6,8 @@ import Banner from "components/Banner";
 import Welcome from "components/HomeSections/Welcome";
 import Products from "components/HomeSections/Products";
 import News from "components/HomeSections/News";
+import Footer from "components/Footer";
+import Partners from "components/HomeSections/Partners";
 
 export default function Home() {
   return (
@@ -21,6 +23,8 @@ export default function Home() {
         <Welcome />
         <Products />
         <News />
+        <Partners />
+        <Footer />
       </main>
     </>
   );
