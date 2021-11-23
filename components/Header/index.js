@@ -55,7 +55,7 @@ const Header = () => {
             <Nav>
               <ul className={css.Menu}>
                 <li className="nav-item">
-                  <a href="/">Нүүр хуудас </a>
+                  <Link href="/">Нүүр хуудас </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/products"> Бүтээгдэхүүн </Link>

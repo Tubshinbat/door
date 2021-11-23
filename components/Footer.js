@@ -1,6 +1,6 @@
 import { Container, Row } from "react-bootstrap";
 import css from "styles/Footer.module.css";
-
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -30,19 +30,19 @@ const Footer = () => {
           <div className="col-xl-3  col-lg-3 col-md-12">
             <ul className={css.FooterMenu}>
               <li>
-                <a href="/"> Эхлэл </a>
+                <Link href="/"> Эхлэл </Link>
               </li>
               <li>
-                <a href="/products">Бүтээгдэхүүн</a>
+                <Link href="/products">Бүтээгдэхүүн</Link>
               </li>
               <li>
                 <a href="/news"> Мэдээ мэдээлэл </a>
               </li>
               <li>
-                <a href="/about"> Бидний тухай </a>
+                <Link href="/about"> Бидний тухай </Link>
               </li>
               <li>
-                <a href="/contact"> Холбоо барих </a>
+                <Link href="/contact"> Холбоо барих </Link>
               </li>
             </ul>
           </div>
