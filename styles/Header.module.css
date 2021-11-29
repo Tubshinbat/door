@@ -1,6 +1,6 @@
 .Header {
   display: flex;
-  background-color: #fff;
+  background-color: #0d4d95;
   align-items: center;
   justify-content: space-between;
   padding: 15px 0px;
@@ -27,23 +27,24 @@
   text-decoration: none;
   font-size: 0.74rem;
   font-weight: 500;
+  color: #fff;
   border-bottom: 2px solid transparent;
   transition: all 0.3s;
 }
 
 .Menu li > a:hover {
-  color: #0d4d95;
-  border-bottom: 2px solid #0d4d95;
+  color: #ffffff;
+  background-color: #052346;
 }
 
 .OrderBtn {
   color: #fff;
-  background-color: #0d4d95;
+  background-color: #062141;
   border-radius: 40px;
   padding: 12px 25px !important;
   margin-left: 25px;
   font-weight: 600 !important;
-  border: 1px solid #0d4d95;
+  border: 1px solid #062141;
   transition: all 0.5s;
   font-size: 0.6rem !important;
 }
@@ -52,6 +53,23 @@
   color: #0d4d95;
   background-color: #fff;
   border: 1px solid #0d4d95;
+}
+
+.Sticky {
+  position: fixed;
+  z-index: 5 !important;
+  top: 0px;
+  width: 100%;
+  padding: 5px 0px;
+  color: #2f4169;
+  transition: all 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+
+.Sticky .Logo {
+  position: relative;
+  width: 140px;
+  height: 60px;
 }
 
 .Topbar {
