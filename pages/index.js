@@ -9,6 +9,7 @@ import News from "components/HomeSections/News";
 import Footer from "components/Footer";
 import Partners from "components/HomeSections/Partners";
 import FooterBar from "components/FooterBar";
+import FastLink from "components/HomeSections/fastLink";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <main>
         <Header />
         <Banner />
+        <FastLink />
         <Welcome />
         <Products />
         <News />
