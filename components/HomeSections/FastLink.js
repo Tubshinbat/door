@@ -22,7 +22,7 @@ const FastLink = () => {
             </Link>
           </div>
           <div className="col-md-4">
-            <Link href="/products">
+            <a href="/products">
               <div className={css.Block}>
                 <div className={css.BlockImg}>
                   <img src="/assets/img/bg-p-2.jpg" />
@@ -34,10 +34,10 @@ const FastLink = () => {
                   <div className={css.fastLinkTitle}>Хаалганууд</div>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
           <div className="col-md-4">
-            <Link href="/contact">
+            <a href="/contact">
               <div className={css.Block}>
                 <div className={css.BlockImg}>
                   <img src="/assets/img/bg-p-2.jpg" />
@@ -49,7 +49,7 @@ const FastLink = () => {
                   <div className={css.fastLinkTitle}>Холбоо барих</div>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
