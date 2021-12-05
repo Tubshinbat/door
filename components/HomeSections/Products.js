@@ -5,9 +5,17 @@ import css from "styles/Sections/Product.module.css";
 const Products = () => {
   return (
     <section className="productsSection">
+      <div className="sectionHader">
+        <h4>Танд санал болгох бүтээгдэхүүнд</h4>
+        <p>
+          Манай компан 2020 оноос хойш Монгол улсдаа Yuou Industrial doors
+          брэндийн халгуудыг оруулж ирж байна
+        </p>
+      </div>
+
       <div className="container">
         <div className="row">
-          <div className="col-xl-3 col-lg-4 col-md-6">
+          {/* <div className="col-xl-3 col-lg-4 col-md-6">
             <div className={css.ProductInfo}>
               <h4> Танд санал болгох бүтээгдэхүүнд</h4>
               <p>
@@ -15,7 +23,7 @@ const Products = () => {
                 брэндийн халгуудыг оруулж ирж байна
               </p>
             </div>
-          </div>
+          </div> */}
           <div className="col-xl-3 col-lg-4 col-md-6">
             <Link href="/products/product1">
               <div className={css.Product}>
