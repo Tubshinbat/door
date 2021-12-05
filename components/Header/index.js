@@ -10,11 +10,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/router";
+
 import { useEffect } from "react";
 
 const Header = () => {
-  const router = useRouter();
   useEffect(() => {
     window.onscroll = () => {
       let header = document.querySelector(".myHeader");
@@ -22,14 +21,8 @@ const Header = () => {
 
       if (window.pageYOffset > sticky) {
         header.classList.add(`${css.Sticky}`);
-        header.classList.add("animate__animated");
-        header.classList.add("animate__slideInDown");
-        header.classList.add("animate__delay-0.2s");
       } else {
         header.classList.remove(`${css.Sticky}`);
-        header.classList.remove("animate__animated");
-        header.classList.remove("animate__slideInDown");
-        header.classList.remove("animate__delay-0.2s");
       }
     };
   }, []);

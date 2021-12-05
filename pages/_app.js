@@ -1,17 +1,8 @@
 import Head from "next/head";
-
-const isServer = typeof window === "undefined";
-const WOW = !isServer ? require("wow.js") : null;
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
-import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    new WOW().init();
-  }, []);
-
   return (
     <>
       <Head>
