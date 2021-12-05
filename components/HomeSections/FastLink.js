@@ -1,6 +1,6 @@
 import css from "styles/Sections/FastLink.module.css";
-import Image from "next/image";
 import Link from "next/link";
+
 const FastLink = () => {
   return (
     <section className={css.FastLinkSection}>
