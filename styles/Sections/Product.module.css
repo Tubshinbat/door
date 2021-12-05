@@ -16,7 +16,7 @@
 }
 
 .Product img {
-  transition: all 0.4s;
+  transition: all 0.5s ease-in;
 }
 
 .Product:hover img {
@@ -26,6 +26,8 @@
 .Product:hover {
   box-shadow: rgba(0, 0, 0, 0.04) 1px 4px 6px 3px,
     rgba(0, 0, 0, 0.04) 1px 2px 4px 3px;
+  background-color: #0d4d95;
+  color: #fff;
 }
 
 .Product h5 {

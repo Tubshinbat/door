@@ -10,12 +10,13 @@
   height: auto;
   padding: 30px;
   cursor: pointer;
-  filter: grayscale(100%);
-  transition: all 0.2s;
+  filter: brightness(0) invert(1);
+  transition: all 0.2s ease-in;
 }
 
 .Logos img:hover {
-  filter: grayscale(0%);
+  filter: brightness(1) invert(0);
+  /* filter: grayscale(0%); */
 }
 
 @media (max-width: 1399px) {
