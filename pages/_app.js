@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 
@@ -7,12 +6,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-
-        <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-
-        <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link

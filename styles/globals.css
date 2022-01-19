@@ -16,11 +16,6 @@ a {
   box-sizing: border-box;
 }
 
-header {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-
 .carousel-caption {
   z-index: 2;
   text-align: left;
@@ -55,7 +50,7 @@ section {
 
 .parentSection {
   padding: 30px 0px;
-  background-color: #f8f8fb !important;
+  background-color: #0d4d95 !important;
 }
 
 .sectionHader {
@@ -71,10 +66,14 @@ section {
   color: #0d4d95;
   font-weight: bold;
   margin-bottom: 0px;
+  text-align: center;
+  line-height: 1.8rem;
 }
 
 .sectionHader p {
+  margin-top: 10px;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .navbar-collapse {

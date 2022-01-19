@@ -13,7 +13,7 @@ const News = () => {
 
       <Container>
         <Row>
-          <div className="col-md-4">
+          <div className="col-xl-4 col-lg-6 col-md-6">
             <Link href="/news-1">
               <div className={css.NewsBox}>
                 <div className={css.NewsBoxImg}>
@@ -35,7 +35,7 @@ const News = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-4">
+          <div className="col-xl-4 col-lg-6 col-md-6">
             <Link href="/news-2">
               <div className={css.NewsBox}>
                 <div className={css.NewsBoxImg}>
@@ -57,7 +57,7 @@ const News = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-4">
+          <div className="col-xl-4 col-lg-6 col-md-6">
             <Link href="/news-1">
               <div className={css.NewsBox}>
                 <div className={css.NewsBoxImg}>
