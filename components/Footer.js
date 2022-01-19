@@ -16,7 +16,7 @@ const Footer = () => {
       <Container>
         <Row>
           <div className="col-md-6">
-            <img src="/assets/img/logo-white.png" />
+            <img src="/assets/img/logo-white.png" />x
           </div>
         </Row>
         <div className={css.FooterInfo}>
