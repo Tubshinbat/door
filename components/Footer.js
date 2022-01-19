@@ -13,6 +13,7 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 const Footer = () => {
   return (
     <footer className={css.Footer}>
+      {/* /footer */}
       <Container>
         <Row>
           <div className="col-xl-6 col-lg-6 col-md-12">
