@@ -1,6 +1,19 @@
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
+import { SWRConfig } from "swr";
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    const error = new Error("An error occurred while fetching the data.");
+    error.info = await res.json();
+    error.status = res.status;
+    throw error;
+  }
+  return res.json();
+};
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +26,19 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <SWRConfig
+        value={{
+          refreshInterval: 5000,
+          fetcher,
+          onError: (error, key) => {
+            if (error.status !== 403 && error.status !== 404) {
+              // alert("Алдаа");
+            }
+          },
+        }}
+      >
+        <Component {...pageProps} />
+      </SWRConfig>
     </>
   );
 }

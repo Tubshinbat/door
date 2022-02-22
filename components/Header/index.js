@@ -8,17 +8,44 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import base from "base";
 
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useInfo, useSocials } from "hooks/use-info";
+import { useMenus } from "hooks/use-menu";
 
 const Header = () => {
+  const [infoData, setInfo] = useState({});
+  const [slinks, setSlinks] = useState([]);
+  const [dataMenus, setDataMenus] = useState([]);
+  const { info } = useInfo();
+  const { socialLinks } = useSocials();
+  const { menus } = useMenus();
+
+  useEffect(() => {
+    if (menus) {
+      setDataMenus(menus.data);
+    }
+  }, [menus]);
+
+  useEffect(() => {
+    if (info) {
+      setInfo(info.data);
+      console.log(info);
+    }
+  }, [info]);
+
+  useEffect(() => {
+    if (socialLinks) {
+      setSlinks(socialLinks.data);
+    }
+  }, [socialLinks]);
+
   useEffect(() => {
     window.onscroll = () => {
       let header = document.querySelector(".myHeader");
       let sticky = header.offsetTop;
-
       if (window.pageYOffset > sticky) {
         header.classList.add(`${css.Sticky}`);
       } else {
@@ -26,6 +53,49 @@ const Header = () => {
       }
     };
   }, []);
+
+  const renderCategories = (categories, child = false) => {
+    let myCategories = [];
+    categories &&
+      categories.map((el) => {
+        myCategories.push(
+          <li key={el._id} className="nav-item">
+            {!el.isDirect && !el.model && (
+              <Link href={`/page/${el.slug}`}>
+                <a
+                  className={child ? `` : `effect  slide-down `}
+                  data-effect={el.name}
+                >
+                  {el.name}
+                </a>
+              </Link>
+            )}
+            {el.isDirect && (
+              <a
+                href={el.direct}
+                target="_blank"
+                className={child ? `` : `effect  slide-down `}
+                data-effect={el.name}
+              >
+                {el.name}
+              </a>
+            )}
+            {el.model && (
+              <Link href={`${el.model}`}>
+                <a
+                  className={child ? `` : `effect  slide-down `}
+                  data-effect={el.name}
+                >
+                  {el.name}
+                </a>
+              </Link>
+            )}
+          </li>
+        );
+      });
+
+    return myCategories;
+  };
 
   return (
     <>
@@ -35,23 +105,26 @@ const Header = () => {
             <div className={css.Contacts}>
               <div className={css.Contact}>
                 <FontAwesomeIcon icon={faPhone} className={css.TopbarIcon} />
-                <a href={`tel:88882470`}> (+976) 8888-2470</a>
+                <a href={`tel:${infoData.phone}`}> (+976) {infoData.phone}</a>
               </div>
               <div className={css.Contact}>
                 <FontAwesomeIcon icon={faEnvelope} className={css.TopbarIcon} />
-                <a href={`mailto:info@domain.mn`}> info@domain.mn</a>
+                <a href={`mailto:${infoData.email}`}> {infoData.email}</a>
               </div>
             </div>
             <div className={css.Socials}>
-              <a href="https://www.facebook.com/">
-                <FontAwesomeIcon icon={faFacebookF} className={css.Icons} />
-              </a>
-              <a href="https://www.twitter.com/">
-                <FontAwesomeIcon icon={faTwitter} className={css.Icons} />
-              </a>
-              <a href="https://www.youtube.com/">
-                <FontAwesomeIcon icon={faYoutube} className={css.Icons} />
-              </a>
+              {slinks.map((el) => (
+                <a href={el.link}>
+                  <FontAwesomeIcon
+                    icon={
+                      (el.name === "facebook" && faFacebookF) ||
+                      (el.name === "twitter" && faTwitter) ||
+                      (el.name === "youtube" && faYoutube)
+                    }
+                    className={css.Icons}
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </Container>
@@ -59,10 +132,9 @@ const Header = () => {
       <Navbar expand="lg" className={`myHeader ${css.Header}`}>
         <Container>
           <Navbar.Brand href="/">
-            {" "}
             <div className={css.Logo}>
-              <Image
-                src="/assets/img/logo-white.png"
+              <img
+                src={`http://localhost:8000/uploads/${infoData.whiteLogo}`}
                 className={css.LogoImg}
                 layout="fill"
               />
@@ -75,15 +147,7 @@ const Header = () => {
                 <li className="nav-item">
                   <Link href="/">Нүүр хуудас </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="/products"> Бүтээгдэхүүн </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/news"> Мэдээ мэдээлэл</Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/about"> Бидний тухай</Link>
-                </li>
+                {renderCategories(dataMenus)}
                 <li className="nav-item">
                   <Link href="/contact"> Холбоо барих </Link>
                 </li>

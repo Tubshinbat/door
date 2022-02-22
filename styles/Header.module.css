@@ -8,8 +8,12 @@
 
 .Logo {
   position: relative;
-  width: 160px;
+  width: 260px;
   height: 65px;
+}
+
+.LogoImg {
+  width: 100%;
 }
 
 .Menu {
@@ -25,7 +29,7 @@
   padding: 10px 15px;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #fff;
   border-bottom: 2px solid transparent;
@@ -35,6 +39,8 @@
 .Menu li > a:hover {
   color: #ffffff;
   background-color: #052346;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .OrderBtn {
@@ -68,7 +74,7 @@
 
 .Sticky .Logo {
   position: relative;
-  width: 140px;
+  width: 250px;
   height: 60px;
 }
 
