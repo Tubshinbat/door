@@ -18,6 +18,10 @@
   );
 }
 
+.BannerImg {
+  height: 100%;
+}
+
 @media (max-width: 1399px) {
   .ImgBox {
     position: relative;

@@ -7,7 +7,11 @@ const FastLink = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <a href="/services/fix">
+            <a
+              href="/services"
+              className=" wow animate__animated animate__fadeInUp"
+              data-wow-delay={`0.3s`}
+            >
               <div className={css.Block}>
                 <div className={css.BlockImg}>
                   <img src="/assets/img/bg-p-1.jpg" />
@@ -22,7 +26,11 @@ const FastLink = () => {
             </a>
           </div>
           <div className="col-md-4">
-            <a href="/products">
+            <a
+              href="/product"
+              className=" wow animate__animated animate__fadeInUp"
+              data-wow-delay={`0.5s`}
+            >
               <div className={css.Block}>
                 <div className={css.BlockImg}>
                   <img src="/assets/img/bg-p-2.jpg" />
@@ -37,7 +45,11 @@ const FastLink = () => {
             </a>
           </div>
           <div className="col-md-4">
-            <a href="/contact">
+            <a
+              href="/contact"
+              className=" wow animate__animated animate__fadeInUp"
+              data-wow-delay={`0.7s`}
+            >
               <div className={css.Block}>
                 <div className={css.BlockImg}>
                   <img src="/assets/img/bg-p-2.jpg" />

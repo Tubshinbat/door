@@ -2,6 +2,10 @@ import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 import { SWRConfig } from "swr";
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wow.js") : null;
+import "animate.css";
+import { useEffect } from "react";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -16,6 +20,9 @@ const fetcher = async (url) => {
 };
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    new WOW().init();
+  }, []);
   return (
     <>
       <Head>
