@@ -47,12 +47,12 @@ const FastLink = () => {
           <div className="col-md-4">
             <a
               href="/contact"
-              className=" wow animate__animated animate__fadeInUp"
+              className="wow animate__animated animate__fadeInUp"
               data-wow-delay={`0.7s`}
             >
               <div className={css.Block}>
                 <div className={css.BlockImg}>
-                  <img src="/assets/img/bg-p-2.jpg" />
+                  <img src="/assets/img/bg-p-3.jpg" />
                 </div>
                 <div className={css.BlockDesc}>
                   <div className={css.Icon}>

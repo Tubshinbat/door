@@ -2,104 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 import css from "styles/Sections/Product.module.css";
 
-const Products = () => {
+const Products = (props) => {
   return (
-    <section className="productsSection">
+    <section
+      className="productsSection wow animate__animated animate__fadeIn"
+      data-wow-delay={`0.5s`}
+    >
       <div className="sectionHader">
         <h4>Танд санал болгох бүтээгдэхүүнд</h4>
         <p>
-          Манай компан 2020 оноос хойш Монгол улсдаа Yuou Industrial doors
+          Манай компан 2016 оноос хойш Монгол улсдаа Yuou Industrial doors
           брэндийн халгуудыг оруулж ирж байна
         </p>
       </div>
 
       <div className="container">
         <div className="row">
-          {/* <div className="col-xl-3 col-lg-4 col-md-6">
-            <div className={css.ProductInfo}>
-              <h4> Танд санал болгох бүтээгдэхүүнд</h4>
-              <p>
-                Манай компан 2020 оноос хойш Монгол улсдаа Yuou Industrial doors
-                брэндийн халгуудыг оруулж ирж байна
-              </p>
-            </div>
-          </div> */}
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-1.jpg" layout="fill" />
-                </div>
-                <h5>Roller shutter door for truck</h5>
+          {props.products &&
+            props.products.map((el) => (
+              <div className="col-xl-3 col-lg-4 col-md-6" key={el.slug}>
+                <Link href={`/product/${el.slug}`}>
+                  <div className={css.Product}>
+                    <div className={css.ProductImg}>
+                      <img
+                        src={`http://localhost:8000/uploads/${el.pictures[0]}`}
+                      />
+                    </div>
+                    <h5>{el.name}</h5>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            {" "}
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-2.jpg" layout="fill" />
-                </div>
-                <h5>Steel Wind Resistant Roller Shutter Door</h5>
-              </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-3.jpg" layout="fill" />
-                </div>
-                <h5>Crystal Roller Shutter Door</h5>
-              </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-4.jpg" layout="fill" />
-                </div>
-                <h5>Alluminum Roller Shutter Door</h5>
-              </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-5.jpg" layout="fill" />
-                </div>
-                <h5>Steel Fire Roller Shutter Door</h5>
-              </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-6.jpg" layout="fill" />
-                </div>
-                <h5>Inorganic Fabric Fire Shutter Door</h5>
-              </div>
-            </Link>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-md-6">
-            <Link href="/products/product1">
-              <div className={css.Product}>
-                <div className={css.ProductImg}>
-                  <Image src="/assets/img/product-7.jpg" layout="fill" />
-                </div>
-                <h5>Garage Door</h5>
-              </div>
-            </Link>
-          </div>
+            ))}
         </div>
         <div className={css.ProductFoot}>
-          <a href="/products" className={css.moreBtn}>
+          <a href="/product" className={css.moreBtn}>
             {" "}
-            Бүх хаалгуудыг харах
+            Бүх хаалгануудыг үзэх
           </a>
         </div>
       </div>

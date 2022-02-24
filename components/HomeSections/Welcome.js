@@ -10,7 +10,6 @@ const Welcome = () => {
   useEffect(() => {
     if (info) {
       setInfo(info.data);
-      console.log(info.data);
     }
   }, [info]);
 

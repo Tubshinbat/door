@@ -10,13 +10,16 @@ import Footer from "components/Footer";
 import Partners from "components/HomeSections/Partners";
 import FooterBar from "components/FooterBar";
 import FastLink from "components/HomeSections/FastLink";
+import { getAllProducts } from "lib/product";
+import { getAllNews } from "lib/news";
+import { getInfo } from "lib/webInfo";
 
-export default function Home() {
+export default function Home({ products, news, info }) {
   return (
     <>
       <Head>
-        <title>Хаалга</title>
-        <meta name="description" content="Door" />
+        <title>{info.name}</title>
+        <meta name="description" content={info.siteInfo} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -24,8 +27,8 @@ export default function Home() {
         <Banner />
         <FastLink />
         <Welcome />
-        <Products />
-        <News />
+        <Products products={products} />
+        <News news={news} />
         <Partners />
         <Footer />
         <FooterBar />
@@ -33,3 +36,21 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const { info } = await getInfo();
+  const select = "name menu slug pictures createAt";
+  const query = `select=${select}&status=true&limit=8`;
+  const { products } = await getAllProducts(query);
+  const newsQuery = `select=name shortDetails pictures slug createAt&status=true&limit=3`;
+  const { news } = await getAllNews(newsQuery);
+
+  return {
+    props: {
+      products,
+      news,
+      info,
+    },
+    revalidate: 10,
+  };
+};

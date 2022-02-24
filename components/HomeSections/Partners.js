@@ -1,15 +1,19 @@
+import { usePartners } from "hooks/use-banners";
 import { Container } from "react-bootstrap";
 import css from "styles/Sections/Partners.module.css";
 const Partners = () => {
+  const { partners } = usePartners();
+
   return (
     <section className="parentSection">
       <Container>
         <div className={css.Logos}>
-          <img src="/assets/img/logo-1.png" />
-          <img src="/assets/img/logo-2.png" />
-          <img src="/assets/img/logo-3.png" />
-          <img src="/assets/img/logo-4.png" />
-          <img src="/assets/img/logo-5.png" />
+          {partners &&
+            partners.map((el) => (
+              <a href={el.link}>
+                <img src={`http://localhost:8000/uploads/${el.logo}`} />
+              </a>
+            ))}
         </div>
       </Container>
     </section>

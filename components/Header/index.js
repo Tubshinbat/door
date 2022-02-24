@@ -32,7 +32,7 @@ const Header = () => {
   useEffect(() => {
     if (info) {
       setInfo(info.data);
-      console.log(info);
+
     }
   }, [info]);
 
@@ -136,6 +136,12 @@ const Header = () => {
               <img
                 src={`http://localhost:8000/uploads/${infoData.whiteLogo}`}
                 className={css.LogoImg}
+                layout="fill"
+              />
+
+              <img
+                src={`http://localhost:8000/uploads/${infoData.logo}`}
+                className={`${css.LogoImg} ${css.ColorLogo}`}
                 layout="fill"
               />
             </div>
