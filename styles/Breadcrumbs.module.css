@@ -1,0 +1,51 @@
+.Page__header {
+  position: relative;
+  width: 100%;
+  background: url("/assets/img/header-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 40px 0px;
+}
+
+.Page__header h4 {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.Breads {
+  display: flex;
+  font-size: 0.6rem;
+  font-weight: bold;
+  list-style: none;
+  color: #d9d316;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0px;
+}
+
+.Breads li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Breads li::after {
+  content: "";
+  display: flex;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0px 15px;
+}
+
+.Breads li:last-child {
+  color: #ccc;
+}
+
+.Breads li:last-child::after {
+  content: none;
+}

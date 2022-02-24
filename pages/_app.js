@@ -11,6 +11,9 @@ import TimeAgo from "javascript-time-ago";
 import mn from "javascript-time-ago/locale/mn.json";
 import ru from "javascript-time-ago/locale/ru.json";
 
+TimeAgo.addDefaultLocale(mn);
+TimeAgo.addLocale(ru);
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -26,8 +29,6 @@ const fetcher = async (url) => {
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     new WOW().init();
-    TimeAgo.addDefaultLocale(mn);
-    TimeAgo.addLocale(ru);
   }, []);
   return (
     <>
