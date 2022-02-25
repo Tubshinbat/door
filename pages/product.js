@@ -9,8 +9,10 @@ import Link from "next/link";
 
 import css from "styles/Product.module.css";
 import sideCss from "styles/Aside.module.css";
+import { getAllNews } from "lib/news";
+import ReactTimeAgo from "react-time-ago";
 
-const Product = ({ products }) => {
+const Product = ({ products, news }) => {
   return (
     <>
       <Head>
@@ -69,6 +71,33 @@ const Product = ({ products }) => {
                     </li>
                   </ul>
                 </div>
+                <div className={sideCss.Side__box}>
+                  <div className={sideCss.Side__title}>
+                    <h5> Эрэлттэй нийтлэл </h5>
+                  </div>
+                  <div className={sideCss.News_boxs}>
+                    {news &&
+                      news.map((el) => (
+                        <a
+                          href={`/news/${el.slug}`}
+                          className={sideCss.News__box}
+                          key={el.slug}
+                        >
+                          <div className={sideCss.News__imageBox}>
+                            <img
+                              src={`http://localhost:8000/uploads/150x150/${el.pictures[0]}`}
+                            />
+                          </div>
+                          <div className={sideCss.News__infos}>
+                            <h5> {el.name} </h5>
+                            <span>
+                              <ReactTimeAgo date={el.createAt} locale="mn-MN" />
+                            </span>
+                          </div>
+                        </a>
+                      ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -83,9 +112,13 @@ const Product = ({ products }) => {
 
 export const getStaticProps = async () => {
   const { products } = await getAllProducts();
+  const { news } = await getAllNews(
+    `select=name createAt pictures slug&sort={ views: -1 }`
+  );
   return {
     props: {
       products,
+      news,
     },
   };
 };
