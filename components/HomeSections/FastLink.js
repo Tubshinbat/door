@@ -1,5 +1,6 @@
 import css from "styles/Sections/FastLink.module.css";
 import Link from "next/link";
+import base from "base";
 
 const FastLink = () => {
   return (
@@ -8,7 +9,7 @@ const FastLink = () => {
         <div className="row">
           <div className="col-md-4">
             <a
-              href="/services"
+              href={base.baseUrl + "services"}
               className=" wow animate__animated animate__fadeInUp"
               data-wow-delay={`0.3s`}
             >
@@ -27,7 +28,7 @@ const FastLink = () => {
           </div>
           <div className="col-md-4">
             <a
-              href="/product"
+              href={`${base.baseUrl}product`}
               className=" wow animate__animated animate__fadeInUp"
               data-wow-delay={`0.5s`}
             >
@@ -46,7 +47,7 @@ const FastLink = () => {
           </div>
           <div className="col-md-4">
             <a
-              href="/contact"
+              href={base.baseUrl + "contact"}
               className="wow animate__animated animate__fadeInUp"
               data-wow-delay={`0.7s`}
             >

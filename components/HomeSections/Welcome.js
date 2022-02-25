@@ -19,13 +19,31 @@ const Welcome = () => {
         <div className="row">
           <div className="col-lg-6">
             <div className={css.About}>
-              <span> Тавтай морил </span>
-              <h3>Монгол дахь цорын ганц албан ёсны дистрибьютор</h3>
-              <p>{infoData.siteInfo}</p>
+              <span
+                className="wow animate__animated animate__fadeInDown"
+                data-wow-delay={`0.3s`}
+              >
+                Тавтай морил{" "}
+              </span>
+              <h3
+                className="wow animate__animated animate__fadeInUp"
+                data-wow-delay={`0.5s`}
+              >
+                Монгол дахь цорын ганц албан ёсны дистрибьютор
+              </h3>
+              <p
+                className="wow animate__animated animate__fadeInDown"
+                data-wow-delay={`0.7s`}
+              >
+                {infoData.siteInfo}
+              </p>
             </div>
           </div>
           <div className="col-lg-6">
-            <div className={css.AboutImg}>
+            <div
+              className={`${css.AboutImg} wow animate__animated animate__fadeInDown`}
+              data-wow-delay={`0.7s`}
+            >
               <Image src="/assets/img/about.jpg" layout="fill" />
             </div>
           </div>

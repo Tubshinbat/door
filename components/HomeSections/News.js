@@ -8,15 +8,30 @@ const News = ({ news }) => {
   return (
     <section>
       <div className="sectionHader">
-        <h4>Мэдээ мэдээлэл</h4>
-        <p> Бидний тухай сүүлийн үеийн мэдээ мэдээлэл</p>
+        <h4
+          className=" wow animate__animated animate__fadeInUp"
+          data-wow-delay={`0.5s`}
+        >
+          Мэдээ мэдээлэл
+        </h4>
+        <p
+          className=" wow animate__animated animate__fadeInDown"
+          data-wow-delay={`0.7s`}
+        >
+          {" "}
+          Бидний тухай сүүлийн үеийн мэдээ мэдээлэл
+        </p>
       </div>
 
       <Container>
         <Row>
           {news &&
             news.map((el) => (
-              <div className="col-xl-4 col-lg-6 col-md-6" key={el.slug}>
+              <div
+                className="col-xl-4 col-lg-6 col-md-6  wow animate__animated animate__fadeInUp"
+                data-wow-delay={`0.3s`}
+                key={el.slug}
+              >
                 <Link href={`news/${el.slug}`}>
                   <div className={css.NewsBox}>
                     <div className={css.NewsBoxImg}>

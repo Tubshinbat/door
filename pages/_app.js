@@ -4,7 +4,6 @@ import "../styles/globals.css";
 import { SWRConfig } from "swr";
 const isServer = typeof window === "undefined";
 const WOW = !isServer ? require("wow.js") : null;
-import "animate.css";
 import { useEffect } from "react";
 import TimeAgo from "javascript-time-ago";
 
@@ -13,6 +12,10 @@ import ru from "javascript-time-ago/locale/ru.json";
 
 TimeAgo.addDefaultLocale(mn);
 TimeAgo.addLocale(ru);
+
+// Styles
+import "styles/ProductSlide.css";
+import "animate.css";
 
 const fetcher = async (url) => {
   const res = await fetch(url);

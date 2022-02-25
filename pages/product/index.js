@@ -11,6 +11,7 @@ import css from "styles/Product.module.css";
 import sideCss from "styles/Aside.module.css";
 import { getAllNews } from "lib/news";
 import ReactTimeAgo from "react-time-ago";
+import base from "base";
 
 const Product = ({ products, news }) => {
   return (
@@ -33,54 +34,75 @@ const Product = ({ products, news }) => {
           <div className="row">
             <div className="col-lg-8">
               <div className={css.Products}>
-                {products &&
-                  products.map((el) => (
-                    <div className="col-xl-4 col-lg-4 col-md-6" key={el.slug}>
-                      <Link href={`/product/${el.slug}`}>
-                        <div className={css.Product}>
-                          <div className={css.ProductImg}>
-                            <img
-                              src={`http://localhost:8000/uploads/450/${el.pictures[0]}`}
-                            />
+                <div className="row">
+                  {products &&
+                    products.map((el, index) => (
+                      <div
+                        className="col-xl-4 col-lg-4 col-md-6 wow animate__animated animate__fadeInUp"
+                        data-wow-delay={`0.${index + 1}s`}
+                        key={el.slug}
+                      >
+                        <Link href={`/product/${el.slug}`}>
+                          <div className={css.Product}>
+                            <div className={css.ProductImg}>
+                              <img
+                                src={`http://localhost:8000/uploads/450/${el.pictures[0]}`}
+                              />
+                            </div>
+                            <h5>{el.name}</h5>
                           </div>
-                          <h5>{el.name}</h5>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
+                        </Link>
+                      </div>
+                    ))}
+                </div>
               </div>
             </div>
             <div className="col-lg-4">
               <div className={sideCss.Side}>
-                <div className={sideCss.Side__box}>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.2s`}
+                >
+                  <div className={sideCss.Side__title}>
+                    <h5> Бүтээгдэхүүний ангилал</h5>
+                  </div>
+                </div>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.3s`}
+                >
                   <div className={sideCss.Side__title}>
                     <h5> Туслах цэс </h5>
                   </div>
                   <ul className={sideCss.Side__menus}>
                     <li>
-                      <a href="/product"> Бүтээгдэхүүн </a>
+                      <a href={`${base.baseUrl}product`}> Бүтээгдэхүүн </a>
                     </li>
                     <li>
-                      <a href="/news"> Мэдээ мэдээлэл </a>
+                      <a href={`${base.baseUrl}news`}> Мэдээ мэдээлэл </a>
                     </li>
                     <li>
-                      <a href="/services"> Засвар үйлчилгээ </a>
+                      <a href={`${base.baseUrl}services`}> Засвар үйлчилгээ </a>
                     </li>
                     <li>
-                      <a href="/contact"> Холбоо барих </a>
+                      <a href={`${base.baseUrl}contact`}> Холбоо барих </a>
                     </li>
                   </ul>
                 </div>
-                <div className={sideCss.Side__box}>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.4s`}
+                >
                   <div className={sideCss.Side__title}>
                     <h5> Эрэлттэй нийтлэл </h5>
                   </div>
                   <div className={sideCss.News_boxs}>
                     {news &&
-                      news.map((el) => (
+                      news.map((el, index) => (
                         <a
-                          href={`/news/${el.slug}`}
-                          className={sideCss.News__box}
+                          href={`${base.baseUrl}news/${el.slug}`}
+                          className={`${sideCss.News__box} wow animate__animated animate__fadeIn`}
+                          data-wow-delay={`0.${index + 7}s`}
                           key={el.slug}
                         >
                           <div className={sideCss.News__imageBox}>
@@ -111,9 +133,9 @@ const Product = ({ products, news }) => {
 };
 
 export const getStaticProps = async () => {
-  const { products } = await getAllProducts();
+  const { products } = await getAllProducts(`status=true`);
   const { news } = await getAllNews(
-    `select=name createAt pictures slug&sort={ views: -1 }`
+    `select=name createAt pictures slug&sort={ views: -1 }&status=true`
   );
   return {
     props: {

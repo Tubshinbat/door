@@ -9,8 +9,13 @@ const Partners = () => {
       <Container>
         <div className={css.Logos}>
           {partners &&
-            partners.map((el) => (
-              <a href={el.link}>
+            partners.map((el, index) => (
+              <a
+                key={`partner_${index}`}
+                href={el.link}
+                className=" wow animate__animated animate__fadeInLeft"
+                data-wow-delay={`0.${index}s`}
+              >
                 <img src={`http://localhost:8000/uploads/${el.logo}`} />
               </a>
             ))}

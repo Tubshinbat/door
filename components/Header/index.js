@@ -32,7 +32,6 @@ const Header = () => {
   useEffect(() => {
     if (info) {
       setInfo(info.data);
-
     }
   }, [info]);
 
@@ -73,7 +72,6 @@ const Header = () => {
             {el.isDirect && (
               <a
                 href={el.direct}
-                target="_blank"
                 className={child ? `` : `effect  slide-down `}
                 data-effect={el.name}
               >
@@ -81,7 +79,7 @@ const Header = () => {
               </a>
             )}
             {el.model && (
-              <Link href={`${el.model}`}>
+              <Link href={`/${el.model}`}>
                 <a
                   className={child ? `` : `effect  slide-down `}
                   data-effect={el.name}
@@ -114,7 +112,7 @@ const Header = () => {
             </div>
             <div className={css.Socials}>
               {slinks.map((el) => (
-                <a href={el.link}>
+                <a href={el.link} key={el.link}>
                   <FontAwesomeIcon
                     icon={
                       (el.name === "facebook" && faFacebookF) ||
@@ -150,14 +148,14 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <ul className={css.Menu}>
-                <li className="nav-item">
-                  <Link href="/">Нүүр хуудас </Link>
+                <li className="nav-item" key="menu_1">
+                  <Link href={base.baseUrl}>Нүүр хуудас </Link>
                 </li>
                 {renderCategories(dataMenus)}
                 <li className="nav-item">
                   <Link href="/contact"> Холбоо барих </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" key="menu_2">
                   <Link href="/order">
                     <a className={css.OrderBtn}> Захиалга өгөх </a>
                   </Link>

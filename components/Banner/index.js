@@ -16,9 +16,9 @@ const Banner = () => {
     <Carousel interval={8000}>
       {bannersData.length > 0 &&
         bannersData.map((el) => (
-          <Carousel.Item>
-            <div className={css.BannerBg}> </div>
-            <div className={css.ImgBox}>
+          <Carousel.Item key={`banner_${el}`}>
+            <div className={`${css.BannerBg}`}> </div>
+            <div className={`${css.ImgBox}  `}>
               <img
                 className={css.BannerImg}
                 src={`http://localhost:8000/uploads/${el.banner}`}

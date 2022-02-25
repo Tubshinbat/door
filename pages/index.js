@@ -39,11 +39,12 @@ export default function Home({ products, news, info }) {
 
 export const getStaticProps = async () => {
   const { info } = await getInfo();
-  const select = "name menu slug pictures createAt";
-  const query = `select=${select}&status=true&limit=8`;
-  const { products } = await getAllProducts(query);
-  const newsQuery = `select=name shortDetails pictures slug createAt&status=true&limit=3`;
-  const { news } = await getAllNews(newsQuery);
+  const { products } = await getAllProducts(
+    `select=name menu slug pictures createAt&status=true&limit=8`
+  );
+  const { news } = await getAllNews(
+    `select=name shortDetails pictures slug createAt&status=true&limit=3`
+  );
 
   return {
     props: {
@@ -51,6 +52,5 @@ export const getStaticProps = async () => {
       news,
       info,
     },
-    revalidate: 10,
   };
 };
