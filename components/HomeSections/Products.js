@@ -31,7 +31,7 @@ const Products = (props) => {
                 data-wow-delay={`0.5s`}
                 key={el.slug}
               >
-                <Link href={`/product/${el.slug}`}>
+                <Link href={`/p/${el.slug}`}>
                   <div className={css.Product}>
                     <div className={css.ProductImg}>
                       <img

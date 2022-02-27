@@ -32,7 +32,7 @@ const News = ({ news }) => {
                 data-wow-delay={`0.3s`}
                 key={el.slug}
               >
-                <Link href={`news/${el.slug}`}>
+                <Link href={`n/${el.slug}`}>
                   <div className={css.NewsBox}>
                     <div className={css.NewsBoxImg}>
                       <img

@@ -1,134 +1,140 @@
-import { useRouter } from "next/router";
-import Head from "next/head";
-import Zoom from "react-img-zoom";
-
-import base from "base";
 import PageHead from "components/Breadcrumbs";
 import Footer from "components/Footer";
 import FooterBar from "components/FooterBar";
 import Header from "components/Header";
 import Partners from "components/HomeSections/Partners";
-import { getAllProducts, getProduct } from "lib/product";
+import { getAllProducts } from "lib/product";
+import Head from "next/head";
+import Link from "next/link";
 
 import css from "styles/Product.module.css";
+import sideCss from "styles/Aside.module.css";
+import { getAllNews } from "lib/news";
+import ReactTimeAgo from "react-time-ago";
+import base from "base";
+import { childMenus } from "lib/menu";
 
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-
-// import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
-
-const Product = ({ product }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const router = useRouter();
-  if (router.isFallback) return <div>Түр хүлээнэ үү ...</div>;
-
+const Product = ({ products, news, menus }) => {
   return (
     <>
       <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{product.name} - МЕТАЛ ХААЛГА METAL DOOR</title>
+        <title>
+          МЕТАЛ ХААЛГА - METAL DOOR АВТОМАТ ҮЙЛДВЭР БОЛОН АЛБАН БАЙГУУЛГЫН
+          ЗОРИУЛТАТАЙ ХААЛГАНЫ ТӨРӨЛЖСӨН ХУДАЛДАА
+        </title>
         <meta
-          property="og:url"
-          content={`${base.baseUrl}/product/${product.slug}`}
+          name="description"
+          content={`Үйлдвэрийн автомат хаалга, автомат хаалга, албан байгууллагын автомат хаалга, хаалга, бүрэн автомат хаалга, мэдрэмжтэй автомат хаалга, хаалганы худалдаа, хаалганы засвар үйлчилгээ, угсралт суурилуулалт`}
         />
-        <meta property="og:type" content="PRODUCT" />
-        <meta property="og:title" content={product.name} />
-        <meta
-          property="og:description"
-          content="Манай компани нь БНХАУ, ОХУ болон Европын улс орнуудаас үйлдвэрийн автомат хаалгануудыг Монгол орныхоо цаг уурын онцлог болон барилгын стандартад нийцсэн автомат хаалгуудыг нийлүүлж байна. Бид дан ганц нийлүүлэхийн зэрэгцээ угсралт суурилуулалт, засвар үйлчилгээг үйлдвэрлэгчээс тогтоосон стандартын дагуу мэргэжлийн өндөр түвшинд гүйцэтгэж байна."
-        />
-        <meta
-          name="twitter:site"
-          content={`${product.name} - МЕТАЛ ХААЛГА METAL DOOR`}
-        />
-        <meta name="twitter:creator" content="METAL DOOR" />
-        <meta
-          property="og:url"
-          content={`${base.baseUrl}/product/${product.slug}`}
-        />
-        <meta
-          property="og:title"
-          content={`${product.name} - МЕТАЛ ХААЛГА METAL DOOR`}
-        />
-        <meta
-          property="og:description"
-          content="Манай компани нь БНХАУ, ОХУ болон Европын улс орнуудаас үйлдвэрийн автомат хаалгануудыг Монгол орныхоо цаг уурын онцлог болон барилгын стандартад нийцсэн автомат хаалгуудыг нийлүүлж байна. Бид дан ганц нийлүүлэхийн зэрэгцээ угсралт суурилуулалт, засвар үйлчилгээг үйлдвэрлэгчээс тогтоосон стандартын дагуу мэргэжлийн өндөр түвшинд гүйцэтгэж байна."
-        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <PageHead
-        prev={`Бүтээгдэхүүн`}
-        prevLink={`${base.baseUrl}product/`}
-        title={product.name}
-      />
-      <section>
+      <PageHead title={`Бүтээгдэхүүнүүд`} />
+      <section className={css.Product__Section}>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 ">
-              <div className={css.Product__description}>
-                <div className={css.Images}>
-                  <Swiper
-                    spaceBetween={10}
-                    navigation={true}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="productSlide"
-                  >
-                    {product.pictures &&
-                      product.pictures.map((el, index) => (
-                        <SwiperSlide className="product__slide">
-                          <img
-                            key={`image_${index}`}
-                            src={base.fileUrl + "450/" + el}
-                          />
-                        </SwiperSlide>
-                      ))}
-                  </Swiper>
-                  <Swiper
-                    onSwiper={setThumbsSwiper}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="productThumbs"
-                  >
-                    {product.pictures &&
-                      product.pictures.map((el, index) => (
-                        <SwiperSlide className="productThumbs__slide">
-                          <img
-                            key={`image_${index}`}
-                            src={base.fileUrl + "150x150/" + el}
-                          />
-                        </SwiperSlide>
-                      ))}
-                  </Swiper>
+            <div className="col-lg-8">
+              <div className={css.Products}>
+                <div className="row">
+                  {products &&
+                    products.map((el, index) => (
+                      <div
+                        className="col-xl-4 col-lg-4 col-md-6 wow animate__animated animate__fadeInUp"
+                        data-wow-delay={`0.${index + 1}s`}
+                        key={el.slug}
+                      >
+                        <Link href={`/p/${el.slug}`}>
+                          <div className={css.Product}>
+                            <div className={css.ProductImg}>
+                              <img
+                                src={`http://localhost:8000/uploads/450/${el.pictures[0]}`}
+                              />
+                            </div>
+                            <h5>{el.name}</h5>
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
                 </div>
-                <div className={css.ShortDetails}>
-                  <h4>{product.name} </h4>
-                  <p>{product.shortDetails}</p>
-
-                  <div className={css.Quantity}>
-                    <button> - </button>
-                    <input type="text" name="quantiy" />
-                    <button> + </button>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className={sideCss.Side}>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.2s`}
+                >
+                  <div className={sideCss.Side__title}>
+                    <h5> Бүтээгдэхүүний ангилал</h5>
+                  </div>
+                  <ul className={sideCss.Side__menus}>
+                    {menus &&
+                      menus.map((el, index) => (
+                        <li key={`__m_${index}`}>
+                          <Link href={`/product/${el.slug}`}>{el.name}</Link>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.3s`}
+                >
+                  <div className={sideCss.Side__title}>
+                    <h5> Туслах цэс </h5>
+                  </div>
+                  <ul className={sideCss.Side__menus}>
+                    <li>
+                      <a href={`${base.baseUrl}product`}> Бүтээгдэхүүн </a>
+                    </li>
+                    <li>
+                      <a href={`${base.baseUrl}news`}> Мэдээ мэдээлэл </a>
+                    </li>
+                    <li>
+                      <a href={`${base.baseUrl}services`}> Засвар үйлчилгээ </a>
+                    </li>
+                    <li>
+                      <a href={`${base.baseUrl}contact`}> Холбоо барих </a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
+                  data-wow-delay={`0.4s`}
+                >
+                  <div className={sideCss.Side__title}>
+                    <h5> Эрэлттэй нийтлэл </h5>
+                  </div>
+                  <div className={sideCss.News_boxs}>
+                    {news &&
+                      news.map((el, index) => (
+                        <a
+                          href={`${base.baseUrl}n/${el.slug}`}
+                          className={`${sideCss.News__box} wow animate__animated animate__fadeIn`}
+                          data-wow-delay={`0.${index + 7}s`}
+                          key={el.slug}
+                        >
+                          <div className={sideCss.News__imageBox}>
+                            <img
+                              src={`http://localhost:8000/uploads/150x150/${el.pictures[0]}`}
+                            />
+                          </div>
+                          <div className={sideCss.News__infos}>
+                            <h5> {el.name} </h5>
+                            <span>
+                              <ReactTimeAgo date={el.createAt} locale="mn-MN" />
+                            </span>
+                          </div>
+                        </a>
+                      ))}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">b</div>
           </div>
         </div>
       </section>
       <Partners />
-
       <Footer />
       <FooterBar />
     </>
@@ -136,25 +142,31 @@ const Product = ({ product }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { product } = await getProduct(params.slug);
-
+  const { products } = await getAllProducts(`status=true&slug=${params.slug}`);
+  const { news } = await getAllNews(
+    `select=name createAt pictures slug&sort={ views: -1 }&status=true&limit=3`
+  );
+  const { menus } = await childMenus("product");
   return {
     props: {
-      product,
+      products,
+      news,
+      menus,
     },
+    revalidate: 10,
   };
 };
 
 export const getStaticPaths = async () => {
-  const { products } = await getAllProducts(`limit=3`);
+  const { menus } = await childMenus("product");
 
   return {
-    paths: products.map((el) => ({
+    paths: menus.map((el) => ({
       params: {
         slug: el.slug,
       },
     })),
-    fallback: true,
+    fallback: "blocking",
   };
 };
 

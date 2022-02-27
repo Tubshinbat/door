@@ -27,7 +27,7 @@ export default function Home({ products, news, info }) {
         <Banner />
         <FastLink />
         <Welcome />
-        <Products products={products} />
+        <Products products={products || []} />
         <News news={news} />
         <Partners />
         <Footer />
@@ -52,5 +52,6 @@ export const getStaticProps = async () => {
       news,
       info,
     },
+    revalidate: 10,
   };
 };

@@ -12,8 +12,12 @@ import sideCss from "styles/Aside.module.css";
 import { getAllNews } from "lib/news";
 import ReactTimeAgo from "react-time-ago";
 import base from "base";
+import { childMenus } from "lib/menu";
+import { useProduct } from "hooks/use-product";
 
-const Product = ({ products, news }) => {
+const Product = ({ products, news, menus }) => {
+  const { useProducts } = useProduct(products, `status=true`);
+
   return (
     <>
       <Head>
@@ -35,14 +39,14 @@ const Product = ({ products, news }) => {
             <div className="col-lg-8">
               <div className={css.Products}>
                 <div className="row">
-                  {products &&
-                    products.map((el, index) => (
+                  {useProducts &&
+                    useProducts.map((el, index) => (
                       <div
                         className="col-xl-4 col-lg-4 col-md-6 wow animate__animated animate__fadeInUp"
                         data-wow-delay={`0.${index + 1}s`}
                         key={el.slug}
                       >
-                        <Link href={`/product/${el.slug}`}>
+                        <Link href={`/p/${el.slug}`}>
                           <div className={css.Product}>
                             <div className={css.ProductImg}>
                               <img
@@ -66,6 +70,14 @@ const Product = ({ products, news }) => {
                   <div className={sideCss.Side__title}>
                     <h5> Бүтээгдэхүүний ангилал</h5>
                   </div>
+                  <ul className={sideCss.Side__menus}>
+                    {menus &&
+                      menus.map((el, index) => (
+                        <li key={`_menu_${index}`}>
+                          <Link href={`/product/${el.slug}`}>{el.name}</Link>
+                        </li>
+                      ))}
+                  </ul>
                 </div>
                 <div
                   className={`${sideCss.Side__box} wow animate__animated animate__fadeInDown`}
@@ -100,7 +112,7 @@ const Product = ({ products, news }) => {
                     {news &&
                       news.map((el, index) => (
                         <a
-                          href={`${base.baseUrl}news/${el.slug}`}
+                          href={`${base.baseUrl}n/${el.slug}`}
                           className={`${sideCss.News__box} wow animate__animated animate__fadeIn`}
                           data-wow-delay={`0.${index + 7}s`}
                           key={el.slug}
@@ -132,15 +144,17 @@ const Product = ({ products, news }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ params }) => {
   const { products } = await getAllProducts(`status=true`);
   const { news } = await getAllNews(
-    `select=name createAt pictures slug&sort={ views: -1 }&status=true`
+    `select=name createAt pictures slug&sort={ views: -1 }&status=true&limit=3`
   );
+  const { menus } = await childMenus("product");
   return {
     props: {
       products,
       news,
+      menus,
     },
   };
 };

@@ -1,0 +1,15 @@
+.Page__box {
+  display: flex;
+  flex-direction: column;
+}
+
+.Page__title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.Page__info img {
+  max-width: 100%;
+}

@@ -49,3 +49,21 @@
 .Breads li:last-child::after {
   content: none;
 }
+
+@media (max-width: 767px) {
+  .Page__header {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 487px) {
+  .Breads {
+    flex-direction: column;
+  }
+  .Breads li::after {
+    content: none;
+  }
+  .Page__header h4 {
+    word-break: break-all;
+  }
+}
