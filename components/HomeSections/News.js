@@ -36,7 +36,7 @@ const News = ({ news }) => {
                   <div className={css.NewsBox}>
                     <div className={css.NewsBoxImg}>
                       <img
-                        src={`http://localhost:8000/uploads/450/${el.pictures[0]}`}
+                        src={`https://cdn.metaldoor.mn/uploads/450/${el.pictures[0]}`}
                         className={css.NewsImg}
                       />
                     </div>

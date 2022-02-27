@@ -47,7 +47,7 @@ const Product = ({ products, news, menus }) => {
                           <div className={css.Product}>
                             <div className={css.ProductImg}>
                               <img
-                                src={`http://localhost:8000/uploads/450/${el.pictures[0]}`}
+                                src={`https://cdn.metaldoor.mn/uploads/450/${el.pictures[0]}`}
                               />
                             </div>
                             <h5>{el.name}</h5>
@@ -116,7 +116,7 @@ const Product = ({ products, news, menus }) => {
                         >
                           <div className={sideCss.News__imageBox}>
                             <img
-                              src={`http://localhost:8000/uploads/150x150/${el.pictures[0]}`}
+                              src={`https://cdn.metaldoor.mn/uploads/150x150/${el.pictures[0]}`}
                             />
                           </div>
                           <div className={sideCss.News__infos}>

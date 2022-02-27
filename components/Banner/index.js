@@ -21,7 +21,7 @@ const Banner = () => {
             <div className={`${css.ImgBox}  `}>
               <img
                 className={css.BannerImg}
-                src={`http://localhost:8000/uploads/${el.banner}`}
+                src={`https://cdn.metaldoor.mn/uploads/${el.banner}`}
               />
             </div>
             <Carousel.Caption>

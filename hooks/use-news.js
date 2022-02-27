@@ -2,9 +2,12 @@ import useSWR from "swr";
 
 export const useNews = (initData, query) => {
   let news;
-  const { data, error } = useSWR(`http://localhost:8000/api/v1/news?${query}`, {
-    initialData: initData,
-  });
+  const { data, error } = useSWR(
+    `https://cdn.metaldoor.mn/api/v1/news?${query}`,
+    {
+      initialData: initData,
+    }
+  );
 
   if (data) {
     news = data.data;
@@ -20,7 +23,7 @@ export const useNews = (initData, query) => {
 export const useGetNews = (initData, slug) => {
   let news = {};
   const { data, error } = useSWR(
-    `http://localhost:8000/api/v1/news/s/${slug}`,
+    `https://cdn.metaldoor.mn/api/v1/news/s/${slug}`,
     {
       initialData: initData,
     }

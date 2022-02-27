@@ -231,7 +231,7 @@ const SingleProduct = ({ product, news, menus }) => {
                         >
                           <div className={sideCss.News__imageBox}>
                             <img
-                              src={`http://localhost:8000/uploads/150x150/${el.pictures[0]}`}
+                              src={`https://cdn.metaldoor.mn/uploads/150x150/${el.pictures[0]}`}
                             />
                           </div>
                           <div className={sideCss.News__infos}>

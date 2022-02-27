@@ -1,7 +1,7 @@
 const base = {
-  apiUrl: "http://localhost:8000/api/v1/",
-  fileUrl: "http://localhost:8000/uploads/",
-  baseUrl: "http://localhost:3000/",
+  apiUrl: "https://cdn.metaldoor.mn/api/v1/",
+  fileUrl: "https://cdn.metaldoor.mn/uploads/",
+  baseUrl: "https://metaldoor.mn/",
 };
 
 export default base;

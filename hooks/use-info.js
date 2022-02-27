@@ -2,7 +2,7 @@ import useSWR from "swr";
 import base from "base";
 
 export const useInfo = () => {
-  const { data, error } = useSWR(`http://localhost:8000/api/v1/webinfo`);
+  const { data, error } = useSWR(`https://cdn.metaldoor.mn/api/v1/webinfo`);
   return {
     info: data,
     isLoading: !error && !data,
@@ -11,7 +11,7 @@ export const useInfo = () => {
 };
 
 export const useChangeInfo = () => {
-  const { data, error } = useSWR(`http://localhost:8000/api/v1/webinfo`);
+  const { data, error } = useSWR(`https://cdn.metaldoor.mn/api/v1/webinfo`);
   let info = {};
   if (data) {
     info = data.data;
@@ -24,7 +24,7 @@ export const useChangeInfo = () => {
 };
 
 export const useSocials = () => {
-  const { data, error } = useSWR(`http://localhost:8000/api/v1/slinks`);
+  const { data, error } = useSWR(`https://cdn.metaldoor.mn/api/v1/slinks`);
   return {
     socialLinks: data,
     isLoading: !error && !data,

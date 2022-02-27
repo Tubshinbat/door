@@ -132,13 +132,13 @@ const Header = () => {
           <Navbar.Brand href="/">
             <div className={css.Logo}>
               <img
-                src={`http://localhost:8000/uploads/${infoData.whiteLogo}`}
+                src={`https://cdn.metaldoor.mn/uploads/${infoData.whiteLogo}`}
                 className={css.LogoImg}
                 layout="fill"
               />
 
               <img
-                src={`http://localhost:8000/uploads/${infoData.logo}`}
+                src={`https://cdn.metaldoor.mn/uploads/${infoData.logo}`}
                 className={`${css.LogoImg} ${css.ColorLogo}`}
                 layout="fill"
               />

@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="col-xl-6 col-lg-6 col-md-12">
             <div className={css.FooterAbout}>
               <img
-                src={`http://localhost:8000/uploads/${info.whiteLogo}`}
+                src={`https://cdn.metaldoor.mn/uploads/${info.whiteLogo}`}
                 className="  wow animate__animated animate__fadeInUp"
                 data-wow-delay={`0.5s`}
               />

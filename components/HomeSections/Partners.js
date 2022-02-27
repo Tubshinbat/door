@@ -16,7 +16,7 @@ const Partners = () => {
                 className=" wow animate__animated animate__fadeInLeft"
                 data-wow-delay={`0.${index}s`}
               >
-                <img src={`http://localhost:8000/uploads/${el.logo}`} />
+                <img src={`https://cdn.metaldoor.mn/uploads/${el.logo}`} />
               </a>
             ))}
         </div>

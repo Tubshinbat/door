@@ -35,7 +35,7 @@ const Products = (props) => {
                   <div className={css.Product}>
                     <div className={css.ProductImg}>
                       <img
-                        src={`http://localhost:8000/uploads/${el.pictures[0]}`}
+                        src={`https://cdn.metaldoor.mn/uploads/${el.pictures[0]}`}
                       />
                     </div>
                     <h5>{el.name}</h5>

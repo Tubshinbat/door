@@ -3,7 +3,7 @@ import useSWR from "swr";
 export const useProduct = (initData, query) => {
   let products;
   const { data, error } = useSWR(
-    `http://localhost:8000/api/v1/product?${query}`,
+    `https://cdn.metaldoor.mn/api/v1/product?${query}`,
     {
       initialData: initData,
     }
@@ -23,7 +23,7 @@ export const useProduct = (initData, query) => {
 export const useGetProduct = (initData, slug) => {
   let product = {};
   const { data, error } = useSWR(
-    `http://localhost:8000/api/v1/product/s/${slug}`,
+    `https://cdn.metaldoor.mn/api/v1/product/s/${slug}`,
     {
       initialData: initData,
     }
