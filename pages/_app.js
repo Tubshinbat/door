@@ -73,12 +73,6 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <OrderStore>
-        <div id="fb-root"></div>
-        <div
-          className="fb-customerchat"
-          attribution="setup_tool"
-          page_id="106255585058341"
-        ></div>
         <SWRConfig
           value={{
             refreshInterval: 84000,
@@ -90,6 +84,12 @@ function MyApp({ Component, pageProps }) {
             },
           }}
         >
+          <div id="fb-root"></div>
+          <div
+            className="fb-customerchat"
+            attribution="setup_tool"
+            page_id="106255585058341"
+          ></div>
           <Component {...pageProps} />
         </SWRConfig>
       </OrderStore>
