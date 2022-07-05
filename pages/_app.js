@@ -38,10 +38,14 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     new WOW().init();
 
+    var chatbox = document.getElementById("fb-customer-chat");
+    chatbox.setAttribute("page_id", "106255585058341");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
     window.fbAsyncInit = function () {
       FB.init({
         xfbml: true,
-        version: "v6.0",
+        version: "v14.0",
       });
     };
 
@@ -85,11 +89,9 @@ function MyApp({ Component, pageProps }) {
           }}
         >
           <div id="fb-root"></div>
-          <div
-            className="fb-customerchat"
-            attribution="setup_tool"
-            page_id="106255585058341"
-          ></div>
+
+          <div id="fb-customer-chat" class="fb-customerchat"></div>
+
           <Component {...pageProps} />
         </SWRConfig>
       </OrderStore>
